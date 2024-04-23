@@ -165,10 +165,16 @@ createApp ({
                 }
                 ],
                 }
-                ]
-        }
+                ],  
+                activeIndex: 0
+        };
     },
     methods : {
-
-    }
+        getContactAvatar: function (contact) {
+            return "assets/img/avatar" + contact.avatar + ".jpg";
+        },
+        changeActiveContacts: function(clickedIndex){
+            this.activeIndex = clickedIndex;
+        }
+    },
 }) .mount ("#app");
