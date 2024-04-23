@@ -166,15 +166,39 @@ createApp ({
                 ],
                 }
                 ],  
-                activeIndex: 0
+
+                activeIndex: 0,
+
+                newMessage: {
+                    date: '',
+                    message: '',
+                    status: 'sent'
+                },
         };
     },
     methods : {
         getContactAvatar: function (contact) {
             return "assets/img/avatar" + contact.avatar + ".jpg";
         },
+
         changeActiveContacts: function(clickedIndex){
             this.activeIndex = clickedIndex;
-        }
-    },
+        },
+
+        //messaggio inviato
+        sendMessage: function(){
+            this.contacts[this.activeIndex].messages.push({...this.newMessage})
+            this.newMessage.message = ''
+        
+
+         //messaggio ricevuto
+        setTimeout(() => {
+            this.contacts[this.activeIndex].messages.push({
+                date:'',
+                message: 'okk',
+                status: 'received'
+            })
+        }, 1000);
+    }
+    }
 }) .mount ("#app");
