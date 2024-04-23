@@ -173,7 +173,9 @@ createApp ({
                     date: '',
                     message: '',
                     status: 'sent'
-                },
+                }
+
+                
         };
     },
     methods : {
@@ -199,6 +201,16 @@ createApp ({
                 status: 'received'
             })
         }, 1000);
+    },
+    search: function(){
+        this.contacts.forEach((curContact) => {
+          const name = curContact.name.toLowerCase();
+          if (name.includes(this.textContact.toLowerCase())) {
+            curContact.founded = true;
+          } else {
+            curContact.founded = false;
+          }
+        });
     }
     }
 }) .mount ("#app");

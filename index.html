@@ -41,11 +41,10 @@
                 <label class="search-label" for="search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </label>
-                <input id="contacts-filter" class="left-searchbar-input" placeholder="Cerca o inizia una nuova chat"
-                    name="search">
+                <input id="contacts-filter" class="left-searchbar-input" placeholder="Cerca o inizia una nuova chat" name="search" v-model="textContact" @keyup.enter="search">
             </div>
             <div class="contacts">
-                <div class="contact" v-for="(curContact, index) in contacts" @click="changeActiveContacts(index)">
+                <div class="contact" v-for="(curContact, index) in contacts" @click="changeActiveContacts(index)" v-show="curContact.founded">
                     <div class="contact-logo">
                         <img :src="`assets/img/avatar${curContact.avatar}.jpg`" :alt="`Avatar ${curContact.name}`">
                     </div>
