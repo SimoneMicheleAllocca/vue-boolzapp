@@ -37,6 +37,8 @@
                     <a href="#">Attiva notifiche desktop</a>
                 </div>
             </div>
+
+            <!-- BARRA DI RICERCA -->
             <div class="left-searchbar">
                 <label class="search-label" for="search">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -90,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="message-time">{{ curMessage.date }}</span>
+                        <span class="message-time"></span>
                     </div>
                     
                 </div>
@@ -99,7 +101,10 @@
                 <div class="right-footer-icon">
                     <i class="far fa-smile"></i>
                 </div>
-                <input class="new-message-inputs" placeholder="Scrivi un messaggio" id="sentMessage" v-model.trim="newMessage.message" @keyup.enter="sendMessage">
+
+
+                <!-- NUOVO MESSAGGIO INVIATO -->
+                <input class="new-message-inputs" placeholder="Scrivi un messaggio"  v-model="newMessage.message" @keyup.enter="sendMessage">
                 <div class="right-footer-icon">
                     <i class="fa fa-microphone" aria-hidden="true"></i>
                 </div>

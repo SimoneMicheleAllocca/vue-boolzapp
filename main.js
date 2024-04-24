@@ -187,13 +187,15 @@ createApp ({
             this.activeIndex = clickedIndex;
         },
 
-        //messaggio inviato
+        //messaggio inviato: entro nel contatto attivo
+        // con push e lo spread operetor aggiungo un nuovo messaggio all'array di messaggi del contatto attivo
+        //aggiunfo il testo del nuovo messaggio in una stringa vuota
         sendMessage: function(){
             this.contacts[this.activeIndex].messages.push({...this.newMessage})
             this.newMessage.message = ''
         
 
-         //messaggio ricevuto
+         //messaggio ricevuto: la funzione esegue l'azione dopo il tempo specificato
         setTimeout(() => {
             this.contacts[this.activeIndex].messages.push({
                 date:'',
@@ -202,6 +204,11 @@ createApp ({
             })
         }, 1000);
     },
+
+    //Itero ogni contatto nell'array con this.contacts.
+    //converto il nome e la ricerca in lettere minuscole.
+    //Usando includes() verifico se il nome del contatto contiene il testo di ricerca.
+     // Se lo contiene mi da true altrimenti false
     search: function(){
         this.contacts.forEach((curContact) => {
           const name = curContact.name.toLowerCase();
@@ -212,5 +219,6 @@ createApp ({
           }
         });
     }
-    }
+
+}
 }) .mount ("#app");
